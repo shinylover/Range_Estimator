@@ -1,0 +1,52 @@
+OIL_VERSION = "2.5";
+
+
+CPU only_one_periodic_task {
+  OS config {
+    STATUS = EXTENDED;
+    
+    BUILD = TRUE {
+      APP_NAME = "RangeEsitimator";
+      APP_SRC = "periodic.c";
+      APP_SRC = "Controller0.c";
+      TRAMPOLINE_BASE_PATH = "../../../..";
+      CPPCOMPILER = "avr-g++";
+      COMPILER = "avr-gcc";
+      LINKER = "avr-gcc";
+      ASSEMBLER = "avr-gcc";
+      COPIER = "avr-objcopy";
+      SYSTEM = PYTHON;
+    };
+    SYSTEM_CALL = TRUE;
+  };
+
+  
+  APPMODE stdAppmode {};
+  
+  ALARM one_second {
+    COUNTER = SystemCounter;
+    ACTION = ACTIVATETASK { TASK = my_periodic_task; };
+    AUTOSTART = TRUE { APPMODE = stdAppmode; ALARMTIME = 100; CYCLETIME = 100; };
+  };
+  
+  ALARM stopper {
+    COUNTER = SystemCounter;
+    ACTION = ACTIVATETASK { TASK = stop; };
+    AUTOSTART = TRUE { APPMODE = stdAppmode; ALARMTIME = 1000; CYCLETIME = 0; };
+  };
+    
+  TASK my_periodic_task {
+    PRIORITY = 1;
+    AUTOSTART = FALSE;
+    ACTIVATION = 1;
+    SCHEDULE = FULL;
+  };
+
+  TASK stop {
+    PRIORITY = 2;
+    AUTOSTART = FALSE;
+    ACTIVATION = 1;
+    SCHEDULE = FULL;
+  };
+  
+};

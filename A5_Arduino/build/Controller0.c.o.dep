@@ -1,0 +1,17 @@
+build/Controller0.c.o: Controller0.c Controller0.h \
+ /usr/lib/gcc/avr/5.4.0/include/stddef.h /usr/lib/avr/include/math.h \
+ /usr/lib/avr/include/string.h rtwtypes.h rtw_continuous.h rtw_solver.h
+
+Controller0.h:
+
+/usr/lib/gcc/avr/5.4.0/include/stddef.h:
+
+/usr/lib/avr/include/math.h:
+
+/usr/lib/avr/include/string.h:
+
+rtwtypes.h:
+
+rtw_continuous.h:
+
+rtw_solver.h:
