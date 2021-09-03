@@ -6,3 +6,15 @@
 * A4_tramponline  在linux虚拟平台上测试代码，代码有问题，并未通过
 * A5_Arduino  使用Simulink+Arduino Uno硬件进行仿真测试，信号源由Simulink提供，控制算法由Simulink提供，输出为Aruduino Uno的Pin13针脚。还未完成，正在开发。
 * A6_Report   一个课程报告
+
+# 运行截图
+* 项目整体图
+  ![test](./imgs/Overall.png)
+
+* Plant图，用来模拟生成距离信号
+
+  ![test](./imgs/Plant.png)
+
+* Controller图，决策中心
+
+  ![test](./imgs/Controller.png)
